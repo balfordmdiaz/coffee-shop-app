@@ -7,12 +7,49 @@
     <title>Coffee Shop</title>
 </head>
 <body>
-    Hello,
-    {% if user.is_authenticated %}
-        {{ user.username }}
-    {% else %}
-        <a href="{% url "login" %}">Login</a>
-    {% endif %}
+
+    <header class="border-b border-gray-200 bg-gray-50">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+          <div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+                <a class="block text-teal-600" href="#">
+                    <span class="sr-only">Home</span>
+                    <img src="/logos/coffee.png" alt="Coffee Shop Logo" class="h-16 w-16">
+                </a>
+            </div>
+      
+            <div class="flex items-center gap-4">
+                {% if user.is_authenticated %}
+                    Hello, {{ user.username }}
+                    <form action="{% url "logout" %}" method="post">
+                        {% csrf_token %}
+                        <button
+                        class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring"
+                        type="submit">
+                        Log Out
+
+                        {% else %}
+                        <button
+                        class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring"
+                        type="submit">
+                            <a href="{% url "login" %}">
+                                Login
+                            </a>
+                        </button>
+                {% endif %}
+                    </button>
+      
+              <button
+                class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                type="button">
+                My Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+      
+    <br>
     <div class="container mx-auto px-4">
         {% block content %}{% endblock content %}
     </div>
