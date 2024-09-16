@@ -15,6 +15,24 @@ class MyOrderView(LoginRequiredMixin, DetailView):
     def get_object(self, queryset=None): 
         
         return Order.objects.filter(is_active=True, user=self.request.user).first()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        order = self.get_object()
+
+        # get products of the order
+        order_products = order.orderproduct_set.all()
+
+        # Calculate subtotal
+        subtotal = sum([item.product.price * item.quantity for item in order_products])
+        
+        total = subtotal
+
+        # Add subtotal and total to the context
+        context['subtotal'] = subtotal
+        context['total'] = total
+
+        return context
     
     
 class CreateOrderProductView(LoginRequiredMixin, CreateView):

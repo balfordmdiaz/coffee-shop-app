@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <h1 align="center" class="text-2xl font-bold text-gray-900 sm:text-3xl">
     Products List
@@ -13,8 +12,7 @@
         <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"> 
             {% for product in products %}
                 <li>
-                
-                    <a href="#" class="group relative block overflow-hidden">
+                    <div class="group relative block overflow-hidden">
                     
                         {% if product.photo %}
                             <img
@@ -31,7 +29,7 @@
                         
                             <p class="mt-1.5 text-sm text-gray-700">${{ product.price }}</p>
                             
-                            <form action="{% url "add_product" %}" class="mt-4", method="post">
+                            <form action="{% url "add_product" %}" class="mt-4" method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="product" value="{{ product.id }}">
                                 <button
@@ -42,11 +40,10 @@
                             </form>
                         
                         </div>
-                    </a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
     </div>
 </section>
 {% endblock content %}
-
