@@ -20,21 +20,21 @@
       
             <div class="flex items-center gap-4">
                 {% if user.is_authenticated %}
-                    Hello, {{ user.username }}
-                    <form action="{% url "logout" %}" method="post">
-                        {% csrf_token %}
-                        <button
-                        class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring"
-                        type="submit">
-                        Log Out
-                        </button>
+                Hello, {{ user.username }}
+                <form action="{% url "logout" %}" method="post">
+                    {% csrf_token %}
+                    <button
+                    class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring"
+                    type="submit">
+                    Log Out
+                    </button>
 
-                        <button
-                        class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
-                        type="button">
-                                <a href="{% url "my_order" %}">My Order</a>
-                        </button>
-
+                    <button
+                    class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                    type="button">
+                        <a href="{% url "my_order" %}">My Order</a>
+                    </button>
+                </form>
                 {% else %}
                      <button
                     class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
@@ -54,17 +54,17 @@
 
     <footer class="bg-gray-50">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-          <div class="sm:flex sm:items-center sm:justify-between">
-            <div class="flex justify-center text-teal-600 sm:justify-start">
-                <a class="block text-teal-600" href="{% url "list_product" %}">
-                    <img src="/logos/coffee.png" alt="Coffee Shop Logo" class="h-16 w-16">
-                </a>
-            </div>
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <div class="flex justify-center text-teal-600 sm:justify-start">
+                    <a class="block text-teal-600" href="{% url "list_product" %}">
+                        <img src="/logos/coffee.png" alt="Coffee Shop Logo" class="h-16 w-16">
+                    </a>
+                </div>
       
-            <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
-              Copyright &copy; 2024. All rights reserved.
-            </p>
-          </div>
+                <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
+                Copyright &copy; 2024. All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
     
