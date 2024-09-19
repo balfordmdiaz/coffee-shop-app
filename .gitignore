@@ -161,16 +161,18 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 *.sqlite3
-./coffee_shop/Dockerfile
-*fly.toml
-*tmp
-*.dockerignore
-*docker-compose.yml
+
+
+# Ignore Docker files in the coffee_shop directory
+coffee_shop/.dockerignore
+coffee_shop/Dockerfile
+coffee_shop/docker-compose.yml
+
 
 # Cython debug symbols
 cython_debug/
 
-.DS_Store
+*.DS_Store
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
