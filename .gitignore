@@ -160,6 +160,12 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+*.sqlite3
+Dockerfile
+fly.toml
+tmp
+.dockerignore
+docker-compose.yml
 
 # Cython debug symbols
 cython_debug/
