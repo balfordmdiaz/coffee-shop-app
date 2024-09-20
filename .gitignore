@@ -168,7 +168,7 @@ coffee_shop/.dockerignore
 coffee_shop/Dockerfile
 coffee_shop/docker-compose.yml
 coffee_shop/fly.toml
-coffee_shop/logos
+coffee_shop/logos/
 
 # Cython debug symbols
 cython_debug/
